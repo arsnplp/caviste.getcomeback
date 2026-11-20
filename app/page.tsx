@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { Icon } from "@/components/ui/Icon";
@@ -5,7 +6,6 @@ import { LpCTA } from "@/components/lp/LpCTA";
 import { StickyCTA } from "@/components/lp/StickyCTA";
 import { ProofSlot } from "@/components/lp/ProofSlot";
 import { ScrollFx } from "@/components/lp/ScrollFx";
-import { LockScreenMockup } from "@/components/lp/LockScreenMockup";
 import { ConsentSettingsLink } from "@/components/lp/ConsentBanner";
 import { CTA_REASSURANCE } from "@/lib/links";
 import { plans, formatPlanPrice, TRIAL_DAYS } from "@/content/pricing";
@@ -162,12 +162,18 @@ export default function LandingCaviste() {
               </div>
             </div>
 
-            {/* Visuel : l'écran verrouillé d'un client, posé sur un grand aplat moutarde */}
-            <div className="relative py-8 lg:py-10" data-parallax="-0.06">
-              <div className="lp-panel absolute inset-x-[-1rem] bottom-0 top-[10%] rounded-[2.5rem] bg-gold-400 sm:inset-x-0 lg:-right-4 lg:left-4" aria-hidden="true" />
-              <div className="lp-hero-img relative">
-                <LockScreenMockup />
-              </div>
+            {/* Visuel : un caviste montre la carte de fidélité sur son téléphone (mise en situation) */}
+            <div className="relative pb-4 pr-3 sm:pr-4" data-parallax="-0.06">
+              <div className="lp-panel absolute bottom-0 left-6 right-0 top-6 rounded-[2rem] bg-gold-400" aria-hidden="true" />
+              <Image
+                src="/caviste-hero.webp"
+                alt="Un caviste, dans sa cave, montre sur son téléphone la carte de fidélité digitale de sa boutique avec son QR code"
+                width={1100}
+                height={1024}
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="lp-hero-img relative h-auto w-full rounded-[2rem] shadow-card-lg"
+              />
             </div>
           </Container>
         </section>
