@@ -380,4 +380,8 @@
 
 /* Mode formulaire instantané (?etape=derniere) : bandeau « Dernière étape » */
 .only-form { display: none; }
-[data-etape="derniere"] .only-form { display: block; }
+[data-etape="derniere"] .only-form { display: inline-flex; }
+[data-etape="derniere"] .not-form { display: none; }
+
+/* Ancres du menu : laisser la place de la barre de navigation collante */
+h2[id] { scroll-margin-top: 5.5rem; }

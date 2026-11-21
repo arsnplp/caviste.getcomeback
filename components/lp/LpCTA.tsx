@@ -12,6 +12,10 @@ type LpCTAProps = {
   position: string;
   size?: "md" | "lg" | "xl";
   className?: string;
+  /** Libellé court (barre de navigation). Par défaut : le libellé commun. */
+  label?: string;
+  /** Version compacte, sans les ajustements de taille du grand bouton. */
+  compact?: boolean;
 };
 
 /**
@@ -19,7 +23,7 @@ type LpCTAProps = {
  * que sur getcomeback.fr, avec en plus les UTM et le fbclid de la pub
  * transmis à l'inscription (plan=free toujours conservé).
  */
-export function LpCTA({ position, size = "xl", className = "" }: LpCTAProps) {
+export function LpCTA({ position, size = "xl", className = "", label = CTA_LABEL, compact = false }: LpCTAProps) {
   const [href, setHref] = useState(SIGNUP_URL);
 
   useEffect(() => {
@@ -29,13 +33,19 @@ export function LpCTA({ position, size = "xl", className = "" }: LpCTAProps) {
   return (
     <a
       href={href}
-      className={buttonClasses("primary", size, `lp-cta min-h-11 whitespace-nowrap max-[400px]:px-5 max-[400px]:text-base max-[340px]:px-4 max-[340px]:text-[0.9rem] ${className}`)}
+      className={buttonClasses(
+        "primary",
+        size,
+        compact
+          ? `whitespace-nowrap ${className}`
+          : `lp-cta min-h-11 whitespace-nowrap max-[400px]:px-5 max-[400px]:text-base max-[340px]:px-4 max-[340px]:text-[0.9rem] ${className}`,
+      )}
       onClick={() => {
         trackEvent("cta_click", { position });
         trackMetaLead(position);
       }}
     >
-      {CTA_LABEL}
+      {label}
       <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 shrink-0">
         <path
           d="M3 10h13m-5-5 5 5-5 5"

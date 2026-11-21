@@ -131,25 +131,44 @@ function Notification({ text }: { text: string }) {
   );
 }
 
+const NAV_LINKS = [
+  { href: "#etapes", label: "Comment ça marche" },
+  { href: "#moments", label: "Notifications" },
+  { href: "#prix", label: "Tarif" },
+  { href: "#faq", label: "Questions" },
+];
+
 /* ---------- Page ---------- */
 
 export default function LandingCaviste() {
   return (
     <>
-      <header>
-        <Container wide className="flex h-14 items-center">
+      <header className="sticky top-0 z-30 border-b border-ink/10 bg-cream/90 backdrop-blur-md">
+        <Container wide className="flex h-14 items-center justify-between gap-4 lg:h-16">
           <Logo />
+          <nav aria-label="Sections de la page" className="hidden items-center gap-7 text-[0.95rem] font-semibold text-ink-soft md:flex">
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href} className="transition-colors hover:text-leaf-700">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <LpCTA position="lp-cav-nav" size="md" compact label="Créer ma carte" />
         </Container>
       </header>
 
       <main>
         {/* ===== Hero ===== */}
-        <section className="overflow-hidden pb-14 lg:flex lg:min-h-[calc(100svh-3.5rem)] lg:items-center lg:pb-16">
+        <section className="overflow-hidden pb-14 lg:flex lg:min-h-[calc(100svh-4rem)] lg:items-center lg:pb-16">
           <Container wide className="grid items-center gap-10 pt-3 sm:pt-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10 lg:pt-4 xl:gap-16">
             <div>
-              <p className="only-form mb-4 rounded-2xl bg-leaf-700 px-4 py-3 font-semibold text-white">
-                Merci, demande bien reçue ! Dernière étape : créez votre carte en 2 minutes. On vous appelle ensuite pour
-                l&apos;installer avec vous.
+              <p className="not-form mb-4 inline-flex items-center gap-2 rounded-full bg-leaf-50 px-3.5 py-1.5 text-sm font-semibold text-leaf-800 ring-1 ring-leaf-700/15">
+                <span className="h-2 w-2 rounded-full bg-gold-500" aria-hidden="true" />
+                30 jours gratuits, installation faite avec vous
+              </p>
+              <p className="only-form mb-4 w-fit items-center gap-2 rounded-full bg-leaf-700 px-3.5 py-1.5 text-sm font-semibold text-white">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-gold-400" aria-hidden="true" />
+                Demande reçue. Il ne reste qu&apos;à créer votre carte.
               </p>
               <h1 className="font-display text-balance text-[clamp(1.5rem,8vw,2.15rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[2.8rem] lg:text-[2.7rem] xl:text-[3.2rem] 2xl:text-[3.6rem]">
                 {HERO_TITLE}
