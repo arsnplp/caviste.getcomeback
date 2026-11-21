@@ -151,7 +151,7 @@ export default function LandingCaviste() {
                 Merci, demande bien reçue ! Dernière étape : créez votre carte en 2 minutes. On vous appelle ensuite pour
                 l&apos;installer avec vous.
               </p>
-              <h1 className="font-display text-[2.15rem] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[3.4rem] lg:text-[3.5rem] xl:text-[4.1rem] 2xl:text-[4.5rem]">
+              <h1 className="font-display text-balance text-[clamp(1.5rem,8vw,2.15rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[2.8rem] lg:text-[2.7rem] xl:text-[3.2rem] 2xl:text-[3.6rem]">
                 {HERO_TITLE}
               </h1>
               <p className="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-ink-soft sm:text-xl lg:mt-6">{HERO_SUBTITLE}</p>

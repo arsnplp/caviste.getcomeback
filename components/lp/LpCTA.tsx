@@ -29,7 +29,7 @@ export function LpCTA({ position, size = "xl", className = "" }: LpCTAProps) {
   return (
     <a
       href={href}
-      className={buttonClasses("primary", size, `lp-cta min-h-11 whitespace-nowrap max-[400px]:px-5 max-[400px]:text-base ${className}`)}
+      className={buttonClasses("primary", size, `lp-cta min-h-11 whitespace-nowrap max-[400px]:px-5 max-[400px]:text-base max-[340px]:px-4 max-[340px]:text-[0.9rem] ${className}`)}
       onClick={() => {
         trackEvent("cta_click", { position });
         trackMetaLead(position);
