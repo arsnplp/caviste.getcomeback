@@ -13,9 +13,9 @@ import { plans, formatPlanPrice, TRIAL_DAYS } from "@/content/pricing";
 /* ============================================================
    Textes à caler sur la pub (message match) : modifier ici.
    ============================================================ */
-const HERO_TITLE = "Vos clients de décembre reviennent en janvier.";
+const HERO_TITLE = "Vos clients reviennent plus souvent, et votre chiffre d'affaires avec.";
 const HERO_SUBTITLE =
-  "Votre carte de fidélité dans leur téléphone. Un arrivage, une dégustation : ils sont prévenus sur leur écran verrouillé.";
+  "La carte de fidélité digitale pensée pour les cavistes.";
 const FINAL_TITLE = "Vos habitués n'attendent qu'un message pour repasser.";
 
 const proPlan = plans.find((p) => p.name === "Pro") ?? plans[0];
